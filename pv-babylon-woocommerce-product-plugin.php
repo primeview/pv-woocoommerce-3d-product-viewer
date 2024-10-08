@@ -97,6 +97,7 @@ function pv_babylonviewer_shortcode($atts = [], $content = null) {
     return $content;
 }
 add_shortcode('pvbabylon', 'pv_babylonviewer_shortcode');
+//add_shortcode('pvbabylon', 'pv_babylon_product_view');
 function char_example_babs($atts=[],$content = null){
     $url = esc_url_raw($content);
 
@@ -203,7 +204,7 @@ function pv_babylon_product_view($product_id) {
     //if($product_id == '9016'){
     //$new_meta2 = get_post_meta(get_the_ID(),'_new_meta', true);
     $viewer =<<<HTML
-                <babylon extends="minimal">
+                <babylon style="max-height:350px;" extends="minimal">
                     <!-- Ground that receives shadows -->
                     <ground receive-shadows="true"></ground>
                     <!-- Default skybox
@@ -234,4 +235,4 @@ HTML;
     echo $viewer;
 }
 add_action('woocommerce_single_product_summary', 'pv_babylon_product_view');
-add_action('brizy_template_content', 'pv_babylon_product_view');
+//add_action('brizy_template_content', 'pv_babylon_product_view');
